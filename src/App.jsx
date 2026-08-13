@@ -1,11 +1,11 @@
-import Counterapp from './Counterapp'
+import CounterPage from './Counterpage'
 import './App.css'
 
 function App() {
 
   return (
     <>
-      <Counterapp />
+      <CounterPage />
 
     </>
   )
