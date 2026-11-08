@@ -1,0 +1,182 @@
+
+* {
+  box-sizing: border-box;
+}
+
+.counter-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+  background: #f4f5f9;
+  font-family: Arial, sans-serif;
+}
+
+.counter-card {
+  width: 100%;
+  max-width: 480px;
+  background: #ffffff;
+  padding: 38px;
+  border: 1px solid #e8e9ef;
+  border-radius: 18px;
+  box-shadow: 0 12px 40px rgba(20, 25, 50, 0.06);
+}
+
+.counter-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.counter-label {
+  display: inline-block;
+  color: #6955d9;
+  background: #f0edff;
+  padding: 7px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.counter-header h1 {
+  font-size: 29px;
+  color: #191b2a;
+  margin: 15px 0 8px;
+  font-weight: 700;
+}
+
+.counter-header p {
+  font-size: 14px;
+  color: #858797;
+  margin: 0;
+}
+
+.counter-display {
+  background: #f7f6ff;
+  border: 1px solid #ece9ff;
+  border-radius: 14px;
+  padding: 28px;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.counter-display span {
+  color: #77778b;
+  font-size: 13px;
+}
+
+.counter-display h2 {
+  font-size: 64px;
+  font-weight: 700;
+  color: #6955d9;
+  margin: 10px 0 0;
+}
+
+.counter-actions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.action-btn {
+  flex: 1;
+  padding: 12px 8px;
+  border: none;
+  border-radius: 9px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.action-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.85;
+}
+
+.increment {
+  background: #e8f7ee;
+  color: #198754;
+}
+
+.reset {
+  background: #f0edff;
+  color: #6955d9;
+}
+
+.decrement {
+  background: #fff0f0;
+  color: #dc3545;
+}
+
+.custom-section label {
+  display: block;
+  color: #292b3a;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.input-group {
+  display: flex;
+  gap: 10px;
+}
+
+.input-group input {
+  min-width: 0;
+  flex: 1;
+  padding: 13px;
+  border: 1px solid #e1e2e9;
+  border-radius: 9px;
+  outline: none;
+  font-size: 13px;
+}
+
+.input-group input:focus {
+  border-color: #7965e8;
+  box-shadow: 0 0 0 3px rgba(105, 85, 217, 0.1);
+}
+
+.input-group button {
+  padding: 0 17px;
+  border: none;
+  border-radius: 9px;
+  background: #6955d9;
+  color: white;
+  font-weight: 600;
+  font-size: 12px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.input-group button:hover {
+  background: #5541c3;
+}
+
+.counter-footer {
+  text-align: center;
+  color: #a0a1ae;
+  font-size: 11px;
+  margin-top: 30px;
+  padding-top: 18px;
+  border-top: 1px solid #eeeeF2;
+}
+
+@media (max-width: 480px) {
+  .counter-card {
+    padding: 25px 18px;
+  }
+
+  .counter-actions {
+    gap: 6px;
+  }
+
+  .action-btn {
+    font-size: 11px;
+  }
+
+  .input-group button {
+    padding: 0 12px;
+  }
+}

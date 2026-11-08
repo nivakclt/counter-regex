@@ -1,34 +1,92 @@
-import { useState } from 'react'
-import { useSelector,useDispatch } from 'react-redux'
-import { incrementByValue,incrementCounter,resetCounter,decrementCounter } from './redux/slices/counterSlice'
 
+import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  incrementByValue,
+  incrementCounter,
+  resetCounter,
+  decrementCounter
+} from './redux/slices/counterSlice';
+import './CounterPage.css';
 
 function CounterPage() {
+  const [inpvalue, setInpValue] = useState('');
 
-    const [inpvalue,setInpValue]=useState("")
+  const { counter } = useSelector(
+    (state) => state.counterReducer
+  );
 
-    const {counter}=useSelector((state)=>state.counterReducer)
-    // console.log(counter)
+  const dispatch = useDispatch();
 
-    const dispatch=useDispatch()
+  const handleSubmit = () => {
+    if (inpvalue !== '' && Number.isFinite(Number(inpvalue))) {
+      dispatch(incrementByValue(Number(inpvalue)));
+      setInpValue('');
+    }
+  };
 
   return (
-    <div style={{minHeight:'100vh'}} className='bg-dark d-flex justify-content-center align-items-center'>
-        <div className='border border-2 border-light p-3 rounded w-50'>
-            <h1 className="text-center mb-2 text-danger">Counter</h1>
-            <h3 className='text-center text-light'>{counter}</h3>
-            <div className='d-flex justify-content-around'>
-                <button className="btn btn-success" onClick={()=>{dispatch(incrementCounter())}}>Increment +</button>
-                <button className="btn btn-info" onClick={()=>{dispatch(resetCounter())}}>Reset</button>
-                <button className="btn btn-danger" onClick={()=>{dispatch(decrementCounter())}}>Decrement -</button>
-            </div>
-            <div className='d-flex gap-3 px-3 mt-3'>
-                <input type="number" onChange={(e)=>{setInpValue(parseInt(e.target.value))}} className="form-control" placeholder='Enter Value' />
-                <button className="btn btn-primary" onClick={()=>{dispatch(incrementByValue(inpvalue))}}>Submit</button>
-            </div>
+    <main className="counter-page">
+      <div className="counter-card">
+
+        <div className="counter-header">
+          
+          <h1>Counter App</h1>
+       
         </div>
-    </div>
-  )
+
+        <div className="counter-display">
+          <span>Current Value</span>
+          <h2>{counter}</h2>
+        </div>
+
+        <div className="counter-actions">
+          <button
+            className="action-btn increment"
+            onClick={() => dispatch(incrementCounter())}
+          >
+            + Increment
+          </button>
+
+          <button
+            className="action-btn reset"
+            onClick={() => dispatch(resetCounter())}
+          >
+            Reset
+          </button>
+
+          <button
+            className="action-btn decrement"
+            onClick={() => dispatch(decrementCounter())}
+          >
+            − Decrement
+          </button>
+        </div>
+
+        <div className="custom-section">
+          <label>Custom Increment</label>
+
+          <div className="input-group">
+            <input
+              type="number"
+              value={inpvalue}
+              onChange={(e) => setInpValue(e.target.value)}
+              placeholder="Enter a number"
+            />
+
+            <button onClick={handleSubmit}>
+              Add Value
+            </button>
+          </div>
+        </div>
+
+        <div className="counter-footer">
+          Built with React & Redux Toolkit
+        </div>
+
+      </div>
+    </main>
+  );
 }
 
-export default CounterPage
+export default CounterPage;
